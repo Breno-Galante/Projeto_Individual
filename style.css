@@ -1,0 +1,44 @@
+body {
+    padding: 0%;
+    margin: 0%;
+    color: white;
+}
+
+.div_home {
+    background-image: url(https://a-static.besthdwallpaper.com/coven-ahri-splash-art-league-of-legends-lol-wallpaper-3554x1999-78865_53.jpg);
+    background-size: cover;
+    width: auto;
+    height: 100vh;
+    padding: 0%;
+    margin: 0%;
+}
+
+#nav_bar {
+    width: 80%;
+    height: 13vh;
+    margin-left: 10%;
+    
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+    padding: 2%;
+    margin: 0%;
+    margin-left: 10%;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    text-shadow: #BD25BD 2px 2px 3px;
+}
+
+.text_home{
+    display: flex;
+    justify-content: end;
+    margin-top: 30%;
+    margin-right: 5%;
+    font-size: 250%;
+}
