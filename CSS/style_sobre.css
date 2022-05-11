@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+body {
+    padding: 0%;
+    margin: 0%;
+    color: white;
+    font-family: 'Iceland', cursive;
+}
+
+
+
+.div_sobre {
+    background-image: url(https://i.pinimg.com/originals/01/9d/46/019d4698e01c2514ac8bd088a69097fa.jpg);
+    background-size: cover;
+    display: flex;
+    width: auto;
+    height: 100vh;
+    z-index: -5;
+}
+
+#sobre_tela_preta {
+    background-color: rgba(0, 0, 0, 0.185);
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+}
+
+#nav_bar {
+    margin-top: 0%;
+    background-color: #2b003173;
+    border-radius: 19px;
+    margin-left: 10%;
+    width: 80%;
+    height: 8vh;
+    font-size: xx-large;
+    
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0% !important;
+    padding: 6px;
+    margin-left: 4%;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    text-shadow: #BD25BD 2px 2px 3px;
+}
+
+.titulo {
+    margin-top: 8%;
+    margin-bottom: -8%;
+    font-size: 50px;
+    margin-left: 6%;
+    color: white;
+    text-shadow: #BD25BD 2px 2px 3px;
+}
+
+.text_sobre{
+    background-color: rgba(0, 0, 0, 0.185);
+    box-sizing: content-box;
+    display: flex;
+    justify-content: start;
+    margin-top: 12%;
+    margin-left: 6%;
+    font-size: 250%;
+    width: 49%;
+    text-align: center;
+}
+
+.navbar span {
+
+    font-size: 110%;
+    margin-top: auto;
+    text-shadow: #ffffff 0px 0px 44px;
+    background: #e236e2;
+    background: radial-gradient(ellipse farthest-corner at center center, #e236e2 0%, #FFFFFF 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o Minimo<input id="input_min"><br>
+    Insira o Maximo <input type="text" id="input_max"><br>
+    Insira o numero para dividir<input type="text" id="input_divisao"><br>
+
+    <button onclick="contar()">Contar</button>
+
+    <div id="resultado"></div>
+
+</body>
+</html>
+<script>
+    function contar() {
+        var num_min = Number(input_min.value)
+        var num_max = Number(input_max.value)
+        var num_div = Number(input_divisao.value)
+
+        if(num_min <= 1) {
+            alert("Insira um numero maior que 1")
+        }
+
+        else if(num_max >= 100) {
+            alert("Insira um numero menor que 100")
+        }
+
+        else if(num_div > 10 || num_div < 3) {
+            alert("Insira um numero entre 3 e 10")
+        }
+
+        else {
+            resultado.innerHTML = ``
+            for(let c = num_min; c <= num_max; c++) {
+                if (c % num_div == 0) {
+                    resultado.innerHTML += c + "<br>"
+                }
+            }
+        }
+
+
+    }
+</script>
