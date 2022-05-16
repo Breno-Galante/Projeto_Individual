@@ -19,7 +19,7 @@ body {
     width: 80%;
     height: 13vh;
     margin-left: 10%;
-    font-size: xx-large;
+    font-size: 45px;
     
 }
 .navbar {
@@ -41,12 +41,12 @@ body {
 .text_home{
     display: flex;
     justify-content: end;
-    margin-top: 30%;
+    margin-top: 27%;
     margin-right: 9%;
-    font-size: 330%;
+    font-size: 90px;
 }
 
-.navbar span {
+.navbar .login {
 
     font-size: 110%;
     margin-top: auto;

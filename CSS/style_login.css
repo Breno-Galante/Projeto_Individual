@@ -17,12 +17,14 @@ body {
 
 }
 
-#div_voltar {
+#a_voltar {
+    color: white;
     margin-top: 5px;
     width: 0%;
     font-size: 8.5mm;
     text-shadow: #BD25BD 2px 2px 3px;
     margin-left: 10px;
+    text-decoration: none;
 }
 
 
@@ -137,7 +139,9 @@ body {
 } */
 
 #clique_aqui {
+    color: white;
     cursor: pointer;
     text-shadow: #BD25BD 2px 2px 3px;
+    text-decoration: none;
 
 }

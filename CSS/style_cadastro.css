@@ -8,53 +8,69 @@ body {
 }
 
 #div_cadastro {
-    background-image: url(../Imgs/ashe_coven.jpg);
-    background-size: cover;
+    background-image: url(../Imgs/kda_wallpaper.jpg);
+    background-size: contain unset no-repeat;
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     transition: 1s;
 
 }
 
-.div_caixa {
-    width: 60vw;
-    height: 80vh;
-    background-color: rgba(8, 0, 15, 0.911);
-    border-radius: 18px;
-    align-self: center;
+
+
+
+#div_esquerda {
+    background-image: url(../Imgs/kda_wallpaper.jpg);
+    background-size: cover;
+    width: 24%;
+    height: 100;
+}
+
+
+#div_box {
+    background-image: url(../Imgs/ahri_kda.jpg);
+    background-size: cover;
+    border-radius: 15px;
+    margin-top: 2.5%;
+    width: 80vw;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: #8a2be2 0px 30px 40px, 
-    #571792 0px -12px 30px, 
-    #571792 0px 4px 6px, 
-    #8a2be2 0px 12px 13px, 
-    #8a2be2 0px -3px 5px;
+    box-shadow: #74b4fd 0px 10px 90px,
+        #ff52da 0px -12px 30px,
+        #74b4fd 0px 4px 6px,
+        #ff52da 0px 12px 13px,
+        #74b4fd 0px -3px 5px;
     transition: 1s;
+
 }
 
 .form_cadastro {
-    margin-left: 2%;
-    margin-top: 10%;
     height: 100%;
     width: 100%;
     display: flex;
+    border-radius: 15px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
+    background-color: rgba(8, 0, 15, 0.74);
 }
 
 #titulo {
-    width: 100%;
-    text-shadow: #BD25BD 2px 2px 3px;
+    width: 30%;
+    margin-top: 2%;
+    text-shadow: #74b4fd 2px 2px 3px;
     font-size: 14.0mm;
     margin-bottom: 4%;
+    margin-left: 5%;
 
 }
 
 #caixa_campos {
+    margin-top: 3%;
     width: 100%;
     height: auto;
     display: flex;
@@ -72,14 +88,58 @@ body {
 }
 
 .field label {
-    text-shadow: #BD25BD 2px 2px 3px;
-    font-size: 6.5mm;
+    text-shadow: #74b4fd 2px 2px 3px;
+    font-size: 8.5mm;
+    margin-bottom: 6px;
 }
 
 .field .input_cadastro {
     width: 21vw;
-    height: 4vh;
-    margin-bottom: 2%;
+    height: 4.5vh;
+    margin-bottom: 4%;
     border-radius: 18px;
     border: solid #660030e3 2px;
+}
+
+#select_rota {
+    margin-left: 2%;
+    width: 5vw;
+    height: 3.5vh;
+    color: #35363a;
+    position: relative;
+    font-family: 'Iceland', cursive;
+    background-color: #f8aef8;
+    background-image: linear-gradient(0deg, #ecb3ec 0%, #9ee8f0 100%);
+    font-size: 4.0mm;
+    font-weight: 700;
+    border-radius: 12px;
+    border: 0px solid;
+    text-align: center;
+    box-shadow: #74b4fd 0px 2px 90px,
+        #ff52da 0px 1px 30px,
+        #74b4fd 0px 2px 6px,
+        #ff52da 0px 2px 13px,
+        #74b4fd 0px 0px 5px;
+    transition: 1s;
+}
+
+.botao_entrar {
+    width: 12vw;
+    height: 7vh;
+    color: rgb(32, 32, 32);
+    font-family: 'Iceland', cursive;
+    align-self: center;
+    background-color: #f8aef8;
+    background-image: linear-gradient(0deg, #ecb3ec 0%, #9ee8f0 100%);
+    border-radius: 18px;
+    margin-top: 2%;
+    font-size: 8.5mm;
+    border: solid 0px;
+    box-shadow: #74b4fd 0px 2px 90px,
+        #ff52da 0px 1px 30px,
+        #74b4fd 0px 2px 6px,
+        #ff52da 0px 2px 13px,
+        #74b4fd 0px 0px 5px;
+    transition: 1s;
+    cursor: pointer;
 }

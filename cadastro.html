@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_cadastro.css">
+    <script src="JS/cadastro.js"></script>
     <title>Cadastro</title>
 </head>
 
 <body>
     <div id="div_cadastro">
+        <div id="div_esquerda"></div>
         <div class="div_caixa" id="div_box">
 
             <form class="form_cadastro">
@@ -48,13 +50,14 @@
                     </div>
 
                     <div class="field">
-                        <label id="label_rota">Rota</label>
+                        <label id="label_rota">Selecione sua Rota</label>
                         <select id="select_rota">
-                            <option value="top">Top</option>
-                            <option value="jungle">Jungle</option>
-                            <option value="mid">Mid</option>
-                            <option value="adc">Adc</option>
-                            <option value="sup">Sup</option>
+                            <option value="--"></option>
+                            <option value="top">TOP</option>
+                            <option value="jungle">JUNGLE</option>
+                            <option value="mid">MID</option>
+                            <option value="adc">ADC</option>
+                            <option value="sup">SUP</option>
                         </select>
                     </div>
 

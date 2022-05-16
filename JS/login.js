@@ -61,7 +61,7 @@ function imgs() {
 
     label_senha.style.textShadow = lista_clique_aqui[cont]
     
-    div_voltar.style.textShadow = lista_clique_aqui[cont]
+    a_voltar.style.textShadow = lista_clique_aqui[cont]
 
 }
 
