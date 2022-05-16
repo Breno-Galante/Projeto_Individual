@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+body {
+    padding: 0%;
+    margin: 0%;
+    color: white;
+    font-family: 'Iceland', cursive;
+}
+
+#div_cadastro {
+    background-image: url(../Imgs/ashe_coven.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+
+}
+
+.div_caixa {
+    width: 60vw;
+    height: 80vh;
+    background-color: rgba(8, 0, 15, 0.911);
+    border-radius: 18px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #8a2be2 0px 30px 40px, 
+    #571792 0px -12px 30px, 
+    #571792 0px 4px 6px, 
+    #8a2be2 0px 12px 13px, 
+    #8a2be2 0px -3px 5px;
+    transition: 1s;
+}
+
+.form_cadastro {
+    margin-left: 2%;
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+#titulo {
+    width: 100%;
+    text-shadow: #BD25BD 2px 2px 3px;
+    font-size: 14.0mm;
+    margin-bottom: 4%;
+
+}
+
+#caixa_campos {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputs_separados {
+    width: 50%;
+    height: 100%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    text-shadow: #BD25BD 2px 2px 3px;
+    font-size: 6.5mm;
+}
+
+.field .input_cadastro {
+    width: 21vw;
+    height: 4vh;
+    margin-bottom: 2%;
+    border-radius: 18px;
+    border: solid #660030e3 2px;
+}

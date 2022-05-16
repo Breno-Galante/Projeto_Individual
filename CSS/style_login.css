@@ -12,9 +12,31 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: flex-start;
+    justify-content: start;
     transition: 1s;
 
+}
+
+#div_voltar {
+    margin-top: 5px;
+    width: 0%;
+    font-size: 8.5mm;
+    text-shadow: #BD25BD 2px 2px 3px;
+    margin-left: 10px;
+}
+
+
+#icone_lol{
+    width: 64vw;
+    height: 10vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+#icone_lol img{
+    width: 11%;
+    height: 60%;
 }
 
 .div_caixa {
@@ -27,7 +49,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: #8a2be2 0px 43px 40px, 
+    box-shadow: #8a2be2 0px 30px 40px, 
     #571792 0px -12px 30px, 
     #571792 0px 4px 6px, 
     #8a2be2 0px 12px 13px, 
@@ -97,7 +119,7 @@ body {
     background-color: #8a2be2;
     border-radius: 18px;
     margin-top: 2%;
-    font-size: 5.0mm;
+    font-size: 5.5mm;
     border: solid 0px;
     transition: 1s;
 }
@@ -109,7 +131,13 @@ body {
     text-align: center;
 }
 
-#clique:hover {
+/* #clique:hover {
     color: #8f0045;
     cursor: pointer;
+} */
+
+#clique_aqui {
+    cursor: pointer;
+    text-shadow: #BD25BD 2px 2px 3px;
+
 }
