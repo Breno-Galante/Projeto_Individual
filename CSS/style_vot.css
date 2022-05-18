@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
 body {
     padding: 0%;
     margin: 0%;
@@ -7,7 +8,7 @@ body {
 }
 
 .div_vot {
-    background-image: url(../Imgs/fofinhos.jpg);
+    background-image: url(../Imgs/ave.jpg);
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -16,23 +17,34 @@ body {
 }
 
 .tela_preta {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.24);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.425);
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: end;
+    justify-content: space-around;
+}
+
+.tela_preta_box {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.24);
+    border-radius: 12px;
 }
 
 .titulo {
-    font-size: 19.00mm;
+    margin-top: 2%;
+    font-size: 20.00mm;
+    text-shadow: #ff52da 3px 4px 9px;
 }
+
 
 .area_vot {
     width: 100%;
-    height: 46vh;
+    height: 50vh;
     display: flex;
+    margin-bottom: -4%;
 }
 
 .caixa_vot {
@@ -44,65 +56,104 @@ body {
 
 #vot1 {
     background-image: url(../Imgs/lux_background.jpg);
-    background-size: cover;
+    background-size: 302px 312px;
     background-clip: content-box;
-    box-shadow: #f6ffc4 0px 30px 40px, 
-    #f1ffa1 0px -12px 30px, 
-    #f1ffa1 0px 4px 6px, 
-    #f6ffc4 0px 12px 13px;
+    border: 1px groove #fdf857;
+
+}
+
+#vot1:hover {
+    box-shadow: #f6ffc4 0px 30px 40px,
+        #f1ffa1 0px -12px 30px,
+        #f1ffa1 0px 4px 6px,
+        #f6ffc4 0px 12px 13px,
+        #fdf857 0px -3px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 #vot2 {
     background-image: url(../Imgs/legends_background.jpg);
-    background-size: cover;
+    background-size: 302px 312px;
     background-clip: content-box;
-    box-shadow: #0ee2e9 0px 30px 40px, 
-    #0ee2e9 0px -12px 30px, 
-    #0ee2e9 0px 4px 6px, 
-    #0ee2e9 0px 12px 13px;
+    border: 1px groove #0ee2e9;
+}
+
+#vot2:hover {
+    box-shadow: #0ee2e9 0px 30px 40px,
+        #0ee2e9 0px -12px 30px,
+        #0ee2e9 0px 4px 6px,
+        #0ee2e9 0px 12px 13px,
+        #0ee2e9 0px -3px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 #vot3 {
     background-image: url(../Imgs/enemy_background.png);
-    background-size: cover;
+    background-size: 313px 312px;
     background-clip: content-box;
-    box-shadow: #01c278 0px 30px 40px, 
-    #25f0a2 0px -12px 30px, 
-    #25f0a2 0px 4px 6px, 
-    #01c278 0px 12px 13px;
+    border: 1px groove #01c278;
+}
+
+#vot3:hover {
+    box-shadow: #01c278 0px 30px 40px,
+        #25f0a2 0px -12px 30px,
+        #25f0a2 0px 4px 6px,
+        #01c278 0px 12px 13px,
+        #01c278 0px -3px 5px;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 #vot4 {
     background-image: url(../Imgs/ahri_kda.jpg);
-    background-size: cover;
+    background-size: 302px 312px;
     background-clip: content-box;
+    border: 1px groove #ff52da;
+}
+
+#vot4:hover {
     box-shadow: #74b4fd 0px 10px 90px,
         #ff52da 0px -12px 30px,
         #74b4fd 0px 4px 6px,
         #74b4fd 0px 12px 13px,
         #74b4fd 0px -3px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 #vot5 {
     background-image: url(../Imgs/wallpaper_ryze.jpg);
-    background-size: cover;
+    background-size: 302px 312px;
     background-clip: content-box;
+    border: 1px groove #cf5821;
+}
+
+#vot5:hover {
     box-shadow: #cf5821 0px 10px 90px,
         #dbcf1e 0px -12px 30px,
         #cf5821 0px 4px 6px,
         #dbcf1e 0px 12px 13px,
         #cf5821 0px -3px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 #vot6 {
     background-image: url(../Imgs/akali_kda.jpg);
-    background-size: cover;
+    background-size: 302px 312px;
     background-clip: content-box;
     margin-right: 10px;
+    border: 1px groove #74b4fd;
+}
+
+#vot6:hover {
     box-shadow: #74b4fd 0px 10px 90px,
         #ff52da 0px -12px 30px,
         #74b4fd 0px 4px 6px,
         #74b4fd 0px 12px 13px,
         #74b4fd 0px -3px 5px;
+    transition: 0.5s;
+    cursor: pointer;
 }
-
