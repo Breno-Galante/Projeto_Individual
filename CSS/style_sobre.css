@@ -47,25 +47,24 @@ body {
     text-shadow: #BD25BD 2px 2px 3px;
 }
 
-.titulo {
-    margin-top: 5%;
-    margin-bottom: -8%;
-    font-size: 90px;
-    margin-left: 6%;
-    color: white;
-    text-shadow: #BD25BD 2px 2px 3px;
-}
 
 .text_sobre{
-    background-color: rgba(0, 0, 0, 0.185);
-    box-sizing: content-box;
+    background-color: #270249b4;
+    border-radius: 16px;
+    box-shadow: #8a2be2 0px 30px 40px, 
+    #571792 0px -12px 30px, 
+    #571792 0px 4px 6px, 
+    #8a2be2 0px 12px 13px, 
+    #8a2be2 0px -3px 5px;
     display: flex;
     justify-content: start;
     margin-top: 12%;
     margin-left: 6%;
     font-size: 250%;
     width: 49%;
+    height: 31%;
     text-align: center;
+    align-self: center;
 }
 
 .navbar .login {

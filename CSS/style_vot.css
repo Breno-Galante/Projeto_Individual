@@ -8,7 +8,7 @@ body {
 }
 
 .div_vot {
-    background-image: url(../Imgs/ave.jpg);
+    background-image: url(../Imgs/imgs_cards/ave_borrado.png);
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -55,8 +55,8 @@ body {
 }
 
 #vot1 {
-    background-image: url(../Imgs/lux_background.jpg);
-    background-size: 302px 312px;
+    background-image: url(../Imgs/imgs_cards/lux_mini.png);
+    background-size: cover;
     background-clip: content-box;
     border: 1px groove #fdf857;
 
@@ -73,8 +73,8 @@ body {
 }
 
 #vot2 {
-    background-image: url(../Imgs/legends_background.jpg);
-    background-size: 302px 312px;
+    background-image: url(../Imgs/imgs_cards/ashe_mini.png);
+    background-size: cover;
     background-clip: content-box;
     border: 1px groove #0ee2e9;
 }
@@ -90,8 +90,8 @@ body {
 }
 
 #vot3 {
-    background-image: url(../Imgs/enemy_background.png);
-    background-size: 313px 312px;
+    background-image: url(../Imgs/imgs_cards/mini_ekko.png);
+    background-size: cover;
     background-clip: content-box;
     border: 1px groove #01c278;
 }
@@ -107,8 +107,8 @@ body {
 }
 
 #vot4 {
-    background-image: url(../Imgs/ahri_kda.jpg);
-    background-size: 302px 312px;
+    background-image: url(../Imgs/imgs_cards/ahri_mini.png);
+    background-size: cover;
     background-clip: content-box;
     border: 1px groove #ff52da;
 }
@@ -124,25 +124,25 @@ body {
 }
 
 #vot5 {
-    background-image: url(../Imgs/wallpaper_ryze.jpg);
-    background-size: 302px 312px;
+    background-image: url(../Imgs/imgs_cards/ryze_mini.png);
+    background-size: cover;
     background-clip: content-box;
     border: 1px groove #cf5821;
 }
 
 #vot5:hover {
     box-shadow: #cf5821 0px 10px 90px,
-        #dbcf1e 0px -12px 30px,
+        #c44307 0px -12px 30px,
         #cf5821 0px 4px 6px,
-        #dbcf1e 0px 12px 13px,
-        #cf5821 0px -3px 5px;
+        #912e06 0px 12px 13px,
+        #911404 0px -3px 5px;
     transition: 0.5s;
     cursor: pointer;
 }
 
 #vot6 {
-    background-image: url(../Imgs/akali_kda.jpg);
-    background-size: 302px 312px;
+    background-image: url(../Imgs/imgs_cards/akali_mini.png);
+    background-size: cover;
     background-clip: content-box;
     margin-right: 10px;
     border: 1px groove #74b4fd;

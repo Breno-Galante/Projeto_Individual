@@ -18,9 +18,6 @@ body {
 
 }
 
-
-
-
 #div_esquerda {
     background-image: url(../Imgs/kda_wallpaper.jpg);
     background-size: cover;
@@ -34,6 +31,7 @@ body {
     background-size: cover;
     border-radius: 15px;
     margin-top: 2.5%;
+    margin-right: 2%;
     width: 80vw;
     height: 90vh;
     display: flex;
@@ -44,7 +42,7 @@ body {
         #74b4fd 0px 4px 6px,
         #ff52da 0px 12px 13px,
         #74b4fd 0px -3px 5px;
-    transition: 1s;
+    transition: 1.5s;
 
 }
 
@@ -56,15 +54,16 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
-    background-color: rgba(8, 0, 15, 0.74);
+    background-color: rgba(8, 0, 15, 0.70);
 }
 
 #titulo {
     width: 30%;
     margin-top: 2%;
-    text-shadow: #74b4fd 2px 2px 3px;
+    text-shadow:#f8aef8 1px 0px 13px,
+     #74b4fd 2px 1px 3px
+    ;
     font-size: 14.0mm;
-    margin-bottom: 4%;
     margin-left: 5%;
 
 }
@@ -88,7 +87,8 @@ body {
 }
 
 .field label {
-    text-shadow: #74b4fd 2px 2px 3px;
+    text-shadow: #74b4fd 2px 1px 3px,
+    #f8aef8 1px 0px 13px;
     font-size: 8.5mm;
     margin-bottom: 6px;
 }
@@ -126,7 +126,8 @@ body {
 .botao_entrar {
     width: 12vw;
     height: 7vh;
-    color: rgb(32, 32, 32);
+    color: white;
+    text-shadow: #202020 1px 2px 5px;
     font-family: 'Iceland', cursive;
     align-self: center;
     background-color: #f8aef8;

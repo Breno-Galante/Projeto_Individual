@@ -41,9 +41,9 @@ body {
 .text_home{
     display: flex;
     justify-content: end;
-    margin-top: 27%;
+    margin-top: 25%;
     margin-right: 9%;
-    font-size: 90px;
+    font-size: 80px;
 }
 
 .navbar .login {
