@@ -108,9 +108,13 @@ body {
     width: 21vw;
     height: 5vh;
     align-self: center;
+    padding-left: 4%;
+    font-size: 5.0mm;
 }
 
-
+*{
+    font-family: 'Iceland', cursive;
+}
 
 
 .botao_entrar {

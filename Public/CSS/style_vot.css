@@ -127,15 +127,15 @@ body {
     background-image: url(../Imgs/imgs_cards/ryze_mini.png);
     background-size: cover;
     background-clip: content-box;
-    border: 1px groove #cf5821;
+    border: 1px groove #ff6e2a;
 }
 
 #vot5:hover {
-    box-shadow: #cf5821 0px 10px 90px,
-        #c44307 0px -12px 30px,
-        #cf5821 0px 4px 6px,
-        #912e06 0px 12px 13px,
-        #911404 0px -3px 5px;
+    box-shadow: #fc0000 0px 10px 90px,
+        #ff9b6d 0px -12px 30px,
+        #fc0000 0px 4px 6px,
+        #fc0000 0px 12px 13px,
+        #ff0202 0px -3px 5px;
     transition: 0.5s;
     cursor: pointer;
 }

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style_cadastro.css">
+    <script src="JS/cadastro.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div id="div_cadastro">
+        <div id="div_esquerda"></div>
+        <div class="div_caixa" id="div_box">
+
+            <form class="form_cadastro">
+                <div id="titulo">Cadastre-se</div>
+
+                <div id="caixa_campos">
+
+                <div class="inputs_separadas">
+
+                    <div class="field">
+                        <label id="label_nome">Nome</label>
+                        <input id="input_nome" class="input_cadastro" type="text">
+                        <div id="validacao_nome" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_nome_usuario">Nome de Invocador</label>
+                        <input id="input_nome_invocador" class="input_cadastro" type="text">
+                        <div id="validacao_invocador" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_email">Email</label>
+                        <input id="input_email" class="input_cadastro" type="text">
+                        <div id="validacao_email" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_cep">Cep</label>
+                        <input id="input_cep" onkeyup="cep()" class="input_cadastro" type="text">
+                        <div id="validacao_cep" class="validacao_erro"></div>
+                    </div>
+                </div>
+
+                <div class="caixa_inputs">
+                    <div class="field">
+                        <label id="label_estado">Estado</label>
+                        <input id="input_estado" class="input_cadastro" type="text">
+                        <div id="validacao_estado" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_rota">Selecione sua Rota</label>
+                        <select id="select_rota">
+                            <option value="--"></option>
+                            <option value="top">TOP</option>
+                            <option value="jungle">JUNGLE</option>
+                            <option value="mid">MID</option>
+                            <option value="adc">ADC</option>
+                            <option value="sup">SUP</option>
+                        </select>
+                        <div id="validacao_sp" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_senha">Senha</label>
+                        <input id="input_senha" class="input_cadastro" type="text">
+                        <div id="validacao_senha" class="validacao_erro"></div>
+                    </div>
+
+                    <div class="field">
+                        <label id="label_confirmar_senha">Confirmar Senha</label>
+                        <input id="input_confirmar_senha" class="input_cadastro" type="text">
+                        <div id="validacao_confirmar" class="validacao_erro"></div>
+                    </div>
+                </div>
+            </div>
+
+                <button type="button" id="botao_cadastro" class="botao_entrar" onclick="cadastrar()">Cadastrar</button>
+
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+function cadastrar() {
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var invocadorVar = input_nome_invocador.value;
+        var emailVar = input_email.value;
+        var cepVar = input_cep.value;
+        var estadoVar = input_estado.value;
+        var rotaVar = select_rota.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmar_senha.value;
+
+        if (nomeVar == "") {
+            validacao_nome.innerHTML = `Por favor insira um nome`
+        }
+        else {
+        
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                invocadorServer: invocadorVar,
+                emailServer: emailVar,
+                cepServer: cepVar,
+                estadoServer: estadoVar,
+                rotaServer: rotaVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                alert("Cadastro realizado com sucesso")
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+}
+
+function cep() {
+
+fetch(`https://viacep.com.br/ws/${input_cep.value}/json/`, {
+    method: "GET",
+    mode: "cors"
+}).then(function (resposta) {
+    console.log(resposta)
+    resposta.json().then(function(data) {
+        console.log(data)
+        input_estado.value = data.uf;
+    })
+
+}).catch(function (erro) {
+    console.log(erro)
+})
+}
+
+</script>

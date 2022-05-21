@@ -18,6 +18,10 @@ body {
 
 }
 
+*{
+    font-family: 'Iceland', cursive;
+}
+
 #div_esquerda {
     background-image: url(../Imgs/kda_wallpaper.jpg);
     background-size: cover;
@@ -99,6 +103,8 @@ body {
     margin-bottom: 4%;
     border-radius: 18px;
     border: solid #660030e3 2px;
+    padding-left: 4%;
+    font-size: 6.0mm;
 }
 
 #select_rota {
