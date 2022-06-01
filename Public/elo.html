@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style_elo.css">
+    <script src="JS/cadastro.js"></script>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <div id="div_elo">
+        <div class="div_caixa" id="div_box">
+
+            <form class="form_elo">
+                <div id="titulo">Insira seu Elo</div>
+
+                <div id="caixa_campos">
+
+                    <div class="field">
+                        <label id="label_elo">Selecione seu Elo</label>
+                        <select class="select" id="select_elo">
+                            <option value="--"></option>
+                            <option value="ferro">FERRO</option>
+                            <option value="jungle">BRONZE</option>
+                            <option value="prata">PRATA</option>
+                            <option value="ouro">OURO</option>
+                            <option value="platina">PLATINA</option>
+                            <option value="diamante">DIAMANTE</option>
+                            <option value="mestre">MESTRE</option>
+                            <option value="grao_mestre">GRÃO MESTRE</option>
+                            <option value="desafiante">DESAFIANTE</option>
+                        </select>
+                        <label id="label_divisao">Selecione sua divisão</label>
+                        <select class="select" id="select_divisao">
+                            <option value="--"></option>
+                            <option value="IV">IV</option>
+                            <option value="III">III</option>
+                            <option value="II">II</option>
+                            <option value="I">I</option>
+                        </select>
+                        <div class="aviso">Caso você seja mestre ou acima deixe sua divisão vazia</div>
+                    </div>
+            </div>
+
+                <button type="button" id="botao_cadastro" class="botao_entrar" onclick="cadastrar_elo()">Pronto</button>
+
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+function cadastrar_elo() {
+
+//Recupere o valor da nova input pelo nome do id
+// Agora vá para o método fetch logo abaixo
+var eloVar = select_elo.value;
+var divisaoVar = select_divisao.value 
+
+if (eloVar == "") {
+    validacao_nome.innerHTML = `Por favor insira um nome`
+}
+else {
+
+// Enviando o valor da nova input
+fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        eloServer: eloVar,
+        divisaoServer: divisaoVar,
+    })
+}).then(function (resposta) {
+
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+
+        alert("Cadastro realizado com sucesso")
+
+        setTimeout(() => {
+            window.location = "votacao.html";
+        }, "2000")
+        
+    } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+    }
+}).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+});
+
+return false;
+}
+}
+
+</script>

@@ -22,17 +22,19 @@
             <form class="form_login">
                 <h1 id="h1_titulo">Iniciar Sessão</h1>
                 <div class="field">
-                    <label id="label_nomeUsuario">Nome de Usuario</label>
-                    <input class="input_login" type="text">
+                    <label id="label_nomeUsuario">Nome de Invocador</label>
+                    <input class="input_login" id="input_nome_invocador" type="text">
                 </div>
 
                 <div class="field">
                     <label id="label_senha">Senha</label>
-                    <input class="input_login" type="text">
+                    <input class="input_login" id="input_senha" type="text">
                 </div>
 
 
-                <button id="botao_login" class="botao_entrar">Entrar</button>
+                <button id="botao_login" class="botao_entrar" onclick="entrar()">Entrar</button>
+
+                <div id="mensagem_erro"></div>
 
 
                 <h3>Você não possui cadastro?<a href="cadastro.html" id="clique_aqui"> Clique Aqui</a></h3>
@@ -45,3 +47,70 @@
 </body>
 
 </html>
+
+<script>
+    function entrar() {
+        aguardar();
+
+        var nomeInvocadorVar = input_nome_invocador.value;
+        var senhaVar = input_senha.value;
+
+        if (nomeInvocadorVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", nomeInvocadorVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeInvocadorServer: nomeInvocadorVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL = json.email;
+                    sessionStorage.NOME_INVOCADOR = json.nomeInvocador;
+                    sessionStorage.ID_USER = json.id_user;
+
+                    setTimeout(function () {
+                        window.location = "";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>

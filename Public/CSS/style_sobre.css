@@ -9,7 +9,7 @@ body {
 
 
 .div_sobre {
-    background-image: url(https://i.pinimg.com/originals/01/9d/46/019d4698e01c2514ac8bd088a69097fa.jpg);
+    background-image: url(../Imgs/master_galante.jfif);
     background-size: cover;
     display: flex;
     width: auto;
@@ -25,9 +25,8 @@ body {
 }
 
 #nav_bar {
-    width: 80%;
+    width: 98%;
     height: 13vh;
-    margin-left: 10%;
     font-size: 45px;
     
 }
@@ -37,34 +36,47 @@ body {
     margin-top: 2%;
     padding: 3%;
     margin: 0%;
-    margin-left: 4%;
     list-style: none;
 }
 
 .navbar a {
     text-decoration: none;
     color: white;
-    text-shadow: #BD25BD 2px 2px 3px;
+    text-shadow: #0cfc78 2px 2px 3px;
 }
 
+#sobre {
+    margin-left: -27vw;
+}
 
-.text_sobre{
-    background-color: #270249b4;
+#box_text {
+    background-color: #1a1a1a;
     border-radius: 16px;
-    box-shadow: #8a2be2 0px 30px 40px, 
-    #571792 0px -12px 30px, 
-    #571792 0px 4px 6px, 
-    #8a2be2 0px 12px 13px, 
-    #8a2be2 0px -3px 5px;
+    box-shadow: #048a40 0px 30px 40px, 
+    #0cfc78 0px -12px 30px, 
+    #0cfc78 0px 4px 6px, 
+    #078a42 0px 12px 13px, 
+    #056d34 0px -3px 5px;
     display: flex;
-    justify-content: start;
+    padding: 1%;
     margin-top: 12%;
     margin-left: 6%;
-    font-size: 250%;
-    width: 49%;
-    height: 31%;
     text-align: center;
     align-self: center;
+    width: 25%;
+    height: 56%;
+}
+
+.text_sobre{
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.text_sobre span {
+    font-size: 44px;
+    font-family: 'Iceland', cursive;
+    text-shadow: #0cfc78 2px 2px 3px;
+
 }
 
 .navbar .login {
@@ -72,8 +84,8 @@ body {
     font-size: 110%;
     margin-top: auto;
     text-shadow: #ffffff 0px 0px 44px;
-    background: #e236e2;
-    background: radial-gradient(ellipse farthest-corner at center center, #e236e2 0%, #FFFFFF 90%);
+    background: #0cfc78;
+    background: radial-gradient(ellipse farthest-corner at center center, #0cfc78 0%, #FFFFFF 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     

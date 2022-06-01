@@ -7,7 +7,7 @@ body {
 }
 
 .div_home {
-    background-image: url(https://a-static.besthdwallpaper.com/coven-ahri-splash-art-league-of-legends-lol-wallpaper-3554x1999-78865_53.jpg);
+    background-image: url(../Imgs/zed_galante.jpg);
     background-size: cover;
     width: auto;
     height: 100vh;
@@ -16,9 +16,9 @@ body {
 }
 
 #nav_bar {
-    width: 80%;
+    width: 98%;
     height: 13vh;
-    margin-left: 10%;
+    margin-left: 0%;
     font-size: 45px;
     
 }
@@ -28,14 +28,18 @@ body {
     margin-top: 2%;
     padding: 3%;
     margin: 0%;
-    margin-left: 4%;
+    margin-left: 0%;
     list-style: none;
+}
+
+#sobre {
+    margin-left: -27vw;
 }
 
 .navbar a {
     text-decoration: none;
     color: white;
-    text-shadow: #BD25BD 2px 2px 3px;
+    text-shadow: #0cfc78 2px 2px 3px;
 }
 
 .text_home{
@@ -44,6 +48,7 @@ body {
     margin-top: 25%;
     margin-right: 9%;
     font-size: 80px;
+    text-shadow: #0cfc78 2px 2px 3px;
 }
 
 .navbar .login {
@@ -51,10 +56,8 @@ body {
     font-size: 110%;
     margin-top: auto;
     text-shadow: #ffffff 0px 0px 44px;
-    background: #e236e2;
-    background: radial-gradient(ellipse farthest-corner at center center, #e236e2 0%, #FFFFFF 90%);
+    background: #0cfc78;
+    background: radial-gradient(ellipse farthest-corner at center center, #0cfc78 0%, #FFFFFF 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    
-
 }

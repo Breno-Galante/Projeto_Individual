@@ -19,3 +19,11 @@ criacao datetime default current_timestamp,
 musica_votada int,
 foreign key (musica_votada) references musicas (id_musica));
 
+create table votos (
+fk_user int primary key,
+foreign key (fk_user) references usuario (id_user),
+musica_votada int,
+foreign key (musica_votada) references musicas (id_musica),
+dt_voto datetime default current_timestamp
+);
+

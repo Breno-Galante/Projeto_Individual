@@ -7,13 +7,13 @@ body {
     font-family: 'Iceland', cursive;
 }
 
-#div_cadastro {
+#div_elo {
     background-image: url(../Imgs/kda_wallpaper.jpg);
     background-size: contain unset no-repeat;
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     transition: 1s;
 
 }
@@ -21,14 +21,6 @@ body {
 *{
     font-family: 'Iceland', cursive;
 }
-
-#div_esquerda {
-    background-image: url(../Imgs/kda_wallpaper.jpg);
-    background-size: cover;
-    width: 24%;
-    height: 100;
-}
-
 
 #div_box {
     background-image: url(../Imgs/ahri_kda.jpg);
@@ -50,39 +42,15 @@ body {
 
 }
 
-.form_cadastro {
+.form_elo {
     height: 100%;
     width: 100%;
     display: flex;
     border-radius: 15px;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: start;
+    align-items: center;
+    justify-content: flex-start;
     background-color: rgba(8, 0, 15, 0.70);
-}
-
-#titulo {
-    width: 30%;
-    margin-top: 2%;
-    text-shadow:#f8aef8 1px 0px 13px,
-     #74b4fd 2px 1px 3px
-    ;
-    font-size: 14.0mm;
-    margin-left: 5%;
-
-}
-
-#caixa_campos {
-    margin-top: 3%;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.inputs_separados {
-    width: 50%;
-    height: 100%;
 }
 
 .field {
@@ -91,32 +59,40 @@ body {
 }
 
 .field label {
-    text-shadow: #74b4fd 2px 1px 3px,
+    text-shadow: #ff52da 2px 1px 3px,
     #f8aef8 1px 0px 13px;
-    font-size: 8.5mm;
-    margin-bottom: 6px;
+    font-size: 14.5mm;
+    margin-bottom: 10px;
+    margin-top: 4%;
+    text-align: center;
 }
 
-.field .input_cadastro {
-    width: 21vw;
-    height: 4.5vh;
+#titulo {
+    margin-top: 2%;
+    text-shadow: #ff52da 1px 0px 13px,
+     #74b4fd 2px 1px 3px
+    ;
+    font-size: 22.0mm;
     margin-bottom: 4%;
-    border-radius: 18px;
-    border: solid #660030e3 2px;
-    padding-left: 4%;
-    font-size: 6.0mm;
 }
 
-#select_rota {
-    margin-left: 2%;
-    width: 5vw;
-    height: 3.5vh;
+.aviso {
+    text-shadow: #ff52da 2px 1px 3px,
+    #74b4fd 2px 1px 3px;
+    font-size: 4.5mm;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.select {
+    width: 8vw;
+    height: 5.5vh;
     color: #35363a;
     position: relative;
     font-family: 'Iceland', cursive;
     background-color: #f8aef8;
     background-image: linear-gradient(0deg, #ecb3ec 0%, #9ee8f0 100%);
-    font-size: 4.0mm;
+    font-size: 5.0mm;
     font-weight: 700;
     border-radius: 12px;
     border: 0px solid;
@@ -127,8 +103,8 @@ body {
         #ff52da 0px 2px 13px,
         #74b4fd 0px 0px 5px;
     transition: 1s;
+    align-self: center;
 }
-
 
 .botao_entrar {
     width: 12vw;
@@ -140,7 +116,7 @@ body {
     background-color: #f8aef8;
     background-image: linear-gradient(0deg, #ecb3ec 0%, #9ee8f0 100%);
     border-radius: 18px;
-    margin-top: 2%;
+    margin-top: 4vh;
     font-size: 8.5mm;
     border: solid 0px;
     box-shadow: #74b4fd 0px 2px 90px,
