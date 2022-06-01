@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+body {
+    padding: 0%;
+    margin: 0%;
+    color: white;
+    font-family: 'Iceland', cursive;
+}
+
+#div_perfil {
+    background-image: url(../Imgs/Anivia_wallpaper.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+#box_opcoes {
+    width: 30vw;
+    height: 60vh;
+    border-radius: 28px;
+    background-color: rgba(8, 0, 15, 0.911);
+    box-shadow: #0ee2e9 0px 30px 40px,
+    #0ee2e9 0px -12px 30px,
+    #0ee2e9 0px 4px 6px,
+    #0ee2e9 0px 12px 13px, 
+    #0ee2e9 0px -3px 5px
+    ;
+}
+
+.conteudo {
+    width: 30vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.conteudo a {
+    font-size: 18mm;
+    color: white;
+    text-decoration: none;
+    text-shadow: #0ee2e9 2px 3px 40px;
+}

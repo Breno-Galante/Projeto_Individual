@@ -50,15 +50,13 @@
 
 <script>
     function entrar() {
-        aguardar();
 
         var nomeInvocadorVar = input_nome_invocador.value;
         var senhaVar = input_senha.value;
 
-        if (nomeInvocadorVar == "" || senhaVar == "") {
+        /* if (nomeInvocadorVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
             return false;
         }
         else {
@@ -66,9 +64,48 @@
         }
 
         console.log("FORM LOGIN: ", nomeInvocadorVar);
-        console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM SENHA: ", senhaVar); */
 
-        fetch("/usuarios/autenticar", {
+        fetch("/usuarios/entrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeInvocadorServer: nomeInvocadorVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then(json => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+/* 
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nome;
+            sessionStorage.ID_USUARIO = json.idusuario;
+            sessionStorage.ID_EMPRESA = json.fkEmpresa;
+ */
+            setTimeout(function () {
+              window.location = "perfil.html";
+            });
+          });
+
+        } 
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+
+        /* fetch("/usuarios/entrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -92,7 +129,7 @@
                     sessionStorage.ID_USER = json.id_user;
 
                     setTimeout(function () {
-                        window.location = "";
+                        window.location.href = "perfil.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -103,14 +140,11 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
                 });
             }
 
         }).catch(function (erro) {
             console.log(erro);
         })
-
-        return false;
-    }
+    } */
 </script>
