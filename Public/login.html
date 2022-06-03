@@ -32,7 +32,7 @@
                 </div>
 
 
-                <button id="botao_login" class="botao_entrar" onclick="entrar()">Entrar</button>
+                <button type="button" id="botao_login" class="botao_entrar" onclick="entrar()">Entrar</button>
 
                 <div id="mensagem_erro"></div>
 
@@ -85,12 +85,11 @@
           resposta.json().then(json => {
             console.log(json);
             console.log(JSON.stringify(json));
-/* 
+
+            sessionStorage.ID_USER = json.id_user;
+            sessionStorage.NOME_INVOCADOR = json.nome_invocador;
             sessionStorage.EMAIL_USUARIO = json.email;
-            sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.idusuario;
-            sessionStorage.ID_EMPRESA = json.fkEmpresa;
- */
+
             setTimeout(function () {
               window.location = "perfil.html";
             });
@@ -104,47 +103,5 @@
 
     return false;
   }
-
-        /* fetch("/usuarios/entrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nomeInvocadorServer: nomeInvocadorVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL = json.email;
-                    sessionStorage.NOME_INVOCADOR = json.nomeInvocador;
-                    sessionStorage.ID_USER = json.id_user;
-
-                    setTimeout(function () {
-                        window.location.href = "perfil.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-    } */
+  
 </script>

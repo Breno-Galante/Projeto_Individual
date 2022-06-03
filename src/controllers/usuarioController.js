@@ -100,6 +100,8 @@ function cadastrar(req, res) {
 
 function cadastrar_elo(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var id = req.body.idServer;
+    var nomeInvocador = req.body.nomeInvocadorServer;
     var elo = req.body.eloServer;
     var divisao = req.body.divisaoServer;
 
@@ -111,7 +113,37 @@ function cadastrar_elo(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar_elo(elo , divisao)
+        usuarioModel.cadastrar_elo(id, nomeInvocador, elo , divisao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function votoMusica(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var id = req.body.idServer;
+    var nomeInvocador = req.body.nomeInvocadorServer;
+    var musica = req.body.musicaServer;
+
+    // Faça as validações dos valores
+    if (musica == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.votoMusica(id, nomeInvocador, musica)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -132,6 +164,7 @@ function cadastrar_elo(req, res) {
 module.exports = {
     entrar,
     cadastrar,
+    votoMusica,
     cadastrar_elo,
     listar,
     testar

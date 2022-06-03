@@ -20,8 +20,13 @@ router.post("/entrar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
-router.post("/cadastrar_elo", function (req, res) {
+
+router.put("/cadastrar_elo", function (req, res) {
     usuarioController.cadastrar_elo(req, res);
-})
+});
+
+router.put("/votoMusica", function (req, res) {
+    usuarioController.votoMusica(req, res);
+});
 
 module.exports = router;

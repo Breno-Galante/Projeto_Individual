@@ -9,51 +9,82 @@
     <title>Votaçâo</title>
 </head>
 
-<body>
+<body onload="nome()">
     <div class="div_vot">
         <div class="tela_preta">
             <div class="titulo">
-                Qual sua Musica de lol preferida
+                Olá <span id=nome_sessao class="titulo"></span>, qual sua musica preferida?
             </div>
             <div class="area_vot">
 
+                <div onclick="votoMusica(1)" id="musica1" class="transparente" onmouseover="PlaySound('warriors')"
+                    onmouseout="StopSound('warriors')"></div>
                 <div class="caixa_vot" id="vot1">
-                    <div class="tela_preta_box" onmouseover="PlaySound('warriors')" onmouseout="StopSound('warriors')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica1">
+                            Warriors
+                        </div>
                         <audio id="warriors"
                             src="Musicas/Y2mate.mx - Warriors _ Season 2020 Cinematic - League of Legends (ft. 2WEI and Edda Hayes) (128 kbps).mp3"></audio>
+
                     </div>
                 </div>
 
+                <div onclick="votoMusica(2)" id="musica2" class="transparente" onmouseover="PlaySound('legendsNeveDie')"
+                    onmouseout="StopSound('legendsNeveDie')"></div>
                 <div class="caixa_vot" id="vot2">
-                    <div class="tela_preta_box" onmouseover="PlaySound('legendsNeveDie')" onmouseout="StopSound('legendsNeveDie')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica2">
+                            Legends Never Die
+                        </div>
                         <audio id="legendsNeveDie"
                             src="Musicas/Y2mate.mx - Legends Never Die (ft. Against The Current) _ Worlds 2017 - League of Legends (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
+                <div onclick="votoMusica(3)" id="musica3" class="transparente" onmouseover="PlaySound('enemy')"
+                    onmouseout="StopSound('enemy')"></div>
                 <div class="caixa_vot" id="vot3">
-                    <div class="tela_preta_box" onmouseover="PlaySound('enemy')" onmouseout="StopSound('enemy')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica3">
+                            Enemy
+                        </div>
                         <audio id="enemy"
                             src="Musicas/Y2mate.mx - Imagine Dragons & JID - Enemy (from the series Arcane League of Legends) _ Official Music Video (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
+                <div onclick="votoMusica(4)" id="musica4" class="transparente" onmouseover="PlaySound('more')"
+                    onmouseout="StopSound('more')"></div>
                 <div class="caixa_vot" id="vot4">
-                    <div class="tela_preta_box" onmouseover="PlaySound('more')" onmouseout="StopSound('more')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica4">
+                            More
+                        </div>
                         <audio id="more"
                             src="Musicas/Y2mate.mx - K_DA - MORE ft. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine (Official Music Video) (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
+                <div onclick="votoMusica(5)" id="musica5" class="transparente" onmouseover="PlaySound('rise')"
+                    onmouseout="StopSound('rise')"></div>
                 <div class="caixa_vot" id="vot5">
-                    <div class="tela_preta_box" onmouseover="PlaySound('rise')" onmouseout="StopSound('rise')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica5">
+                            Rise
+                        </div>
                         <audio id="rise"
                             src="Musicas/Y2mate.mx - RISE (ft. The Glitch Mob, Mako, and The Word Alive) _ Worlds 2018 - League of Legends (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
+                <div onclick="votoMusica(6)" id="musica6" class="transparente" onmouseover="PlaySound('popStars')"
+                    onmouseout="StopSound('popStars')"></div>
                 <div class="caixa_vot" id="vot6">
-                    <div class="tela_preta_box" onmouseover="PlaySound('popStars')" onmouseout="StopSound('popStars')">
+                    <div class="tela_preta_box">
+                        <div id="nome_musica6" onmouseover="trocar()">
+                            Pop Stars
+                        </div>
                         <audio id="popStars"
                             src="Musicas/Y2mate.mx - K_DA - POP_STARS (ft. Madison Beer, (G)I-DLE, Jaira Burns) _ Music Video - League of Legends (128 kbps).mp3"></audio>
                     </div>
@@ -62,20 +93,109 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
 
 <script>
 
-function PlaySound(soundobj) {
-    var thissound=document.getElementById(soundobj);
-    thissound.play();
-}
+    function votoMusica(numMusica) {
 
-function StopSound(soundobj) {
-    var thissound=document.getElementById(soundobj);
-    thissound.pause();
-    thissound.currentTime = 0;
-}
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var idVar = sessionStorage.ID_USER;
+        var nomeInvocadorVar = sessionStorage.NOME_INVOCADOR;
+        var musicaVar = numMusica;
+
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/votoMusica", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    idServer: idVar,
+                    nomeInvocadorServer: nomeInvocadorVar,
+                    musicaServer: musicaVar,
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert("Cadastro realizado com sucesso")
+
+                        window.location = "perfil.html";
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
+
+    function nome() {
+        nome_sessao.innerHTML = sessionStorage.NOME_INVOCADOR
+    }
+
+
+    function PlaySound(soundobj) {
+        var thissound = document.getElementById(soundobj);
+        thissound.play();
+        if (soundobj == 'warriors') {
+            nome_musica1.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+        else if (soundobj == 'legendsNeveDie') {
+            nome_musica2.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+        else if (soundobj == 'enemy') {
+            nome_musica3.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+        else if (soundobj == 'more') {
+            nome_musica4.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+        else if (soundobj == 'rise') {
+            nome_musica5.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+        else if (soundobj == 'popStars') {
+            nome_musica6.innerHTML = '<img style="width: 60%;" src="Imgs/imgs_cards/icone_certo.png">'
+        }
+
+    }
+
+    function StopSound(soundobj) {
+        var thissound = document.getElementById(soundobj);
+        thissound.pause();
+        thissound.currentTime = 0;
+
+        if (soundobj == 'warriors') {
+            nome_musica1.innerHTML = 'Warriors'
+        }
+        else if (soundobj == 'legendsNeveDie') {
+            nome_musica2.innerHTML = 'Legends Never Die'
+        }
+        else if (soundobj == 'enemy') {
+            nome_musica3.innerHTML = 'Enemy'
+        }
+        else if (soundobj == 'more') {
+            nome_musica4.innerHTML = 'More'
+        }
+        else if (soundobj == 'rise') {
+            nome_musica5.innerHTML = 'Rise'
+        }
+        else if (soundobj == 'popStars') {
+            nome_musica6.innerHTML = 'Pop Stars'
+        }
+    }
+
+
+
 </script>

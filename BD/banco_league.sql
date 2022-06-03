@@ -13,7 +13,9 @@ nome_invocador varchar (45),
 email varchar(45),
 cep char(8),
 estado char(2),
-rota char,
+rota char (10),
+elo varchar (13),
+divisao char (5),
 senha varchar(30),
 criacao datetime default current_timestamp,
 musica_votada int,
@@ -26,4 +28,16 @@ musica_votada int,
 foreign key (musica_votada) references musicas (id_musica),
 dt_voto datetime default current_timestamp
 );
+
+Insert into musicas (nome_musica) values 
+('Warriors'),
+('Legends Never Die'),
+('Enemy'),
+('More'),
+('Rise'),
+('Pop Stars');
+
+select * from usuario;
+
+UPDATE usuario SET elo = '', divisao = '' where id_user = '1';
 

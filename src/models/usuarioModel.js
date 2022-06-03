@@ -32,21 +32,29 @@ function cadastrar(nome, invocador, email, cep, estado, rota, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar_elo(elo , divisao) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", elo , divisao);
+function cadastrar_elo(id, nomeInvocador, elo , divisao) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_elo():", id, nomeInvocador, elo , divisao);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `
-    Update usuario set elo = ${elo} where id_user = ${sessionStorage.ID_USER};
-    Update usuario set divisao = ${divisao} where id_user = ${sessionStorage.ID_USER};
-    `;
+    var instrucao = `UPDATE usuario SET elo = '${elo}', divisao = '${divisao}' where id_user = '${id}';`;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function votoMusica(id, nomeInvocador, musica) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function musica():", id, nomeInvocador, musica);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `UPDATE usuario SET musica_votada = '${musica}' where id_user = '${id}';`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 module.exports = {
     entrar,
+    votoMusica,
     cadastrar,
     cadastrar_elo,
     listar,

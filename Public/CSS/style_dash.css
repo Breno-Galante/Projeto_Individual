@@ -33,9 +33,9 @@ body {
     align-items: center;
     flex-direction: column;
     box-shadow: #0cfc78 0px 10px 90px,
-        #f4f4f4 0px -12px 30px,
+        #006b30 0px -12px 30px,
         #0cfc78 0px 4px 6px,
-        #f4f4f4 0px 12px 13px,
+        #006b30 0px 12px 13px,
         #0cfc78 0px -3px 5px;
 
 }

@@ -61,6 +61,8 @@
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
+        var idVar = sessionStorage.ID_USER;
+        var nomeInvocadorVar = sessionStorage.NOME_INVOCADOR;
         var eloVar = select_elo.value;
         var divisaoVar = select_divisao.value
 
@@ -71,13 +73,15 @@
 
             // Enviando o valor da nova input
             fetch("/usuarios/cadastrar_elo", {
-                method: "POST",
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
+                    idServer: idVar,
+                    nomeInvocadorServer: nomeInvocadorVar,
                     eloServer: eloVar,
                     divisaoServer: divisaoVar,
                 })
@@ -90,7 +94,7 @@
                     alert("Cadastro realizado com sucesso")
 
                     setTimeout(() => {
-                        window.location = "votacao.html";
+                        window.location = "perfil.html";
                     }, "2000")
 
                 } else {

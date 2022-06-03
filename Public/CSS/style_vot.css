@@ -29,8 +29,66 @@ body {
 .tela_preta_box {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: rgba(0, 0, 0, 0.589);
     border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela_preta_box {
+    text-align: center;
+}
+
+.caixa_vot {
+    height: 100%;
+    width: 16.5%;
+    border-radius: 12px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+
+#nome_musica1 {
+    font-size: 16mm;
+    text-shadow: #fdf857 1px 2px 6px;
+    transition: 0.3s;
+}
+
+#nome_musica2 {
+    font-size: 16mm;
+    text-shadow: #0ee2e9 1px 2px 6px;
+    transition: 0.3s;
+}
+
+#nome_musica3 {
+    font-size: 16mm;
+    text-shadow: #25f0a2 1px 2px 6px;
+    transition: 0.3s;
+}
+
+#nome_musica4 {
+    font-size: 16mm;
+    text-shadow: #74b4fd 1px 2px 6px,
+    #ff52da 1px 2px 6px;
+    transition: 0.3s;
+}
+
+#nome_musica5 {
+    font-size: 16mm;
+    text-shadow: #fc0000 1px 2px 6px,
+    #ff9b6d 1px 2px 6px;
+    transition: 0.3s;
+}
+
+#nome_musica6 {
+    font-size: 16mm;
+    text-shadow: #74b4fd 1px 2px 6px,
+    #ff52da 1px 2px 6px;
+    transition: 0.3s;
 }
 
 .titulo {
@@ -47,12 +105,34 @@ body {
     margin-bottom: -4%;
 }
 
-.caixa_vot {
-    height: 100%;
-    width: 16.5%;
-    border-radius: 12px;
-    margin-left: 10px;
+.transparente {
+    width: 16vw; 
+    height: 50vh; 
+    background-color: #00000000; 
+    z-index: 999; 
+    position: absolute; 
+    cursor: pointer;
 }
+
+#musica1 {
+    left: 0%;
+}
+#musica2 {
+    left: 16.5%;
+}
+#musica3 {
+    left: 33.5%;
+}
+#musica4 {
+    left: 50%;
+}
+#musica5 {
+    left: 66.5%;
+}
+#musica6 {
+    left: 83%;
+}
+
 
 #vot1 {
     background-image: url(../Imgs/imgs_cards/lux_mini.png);
