@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+body {
+    padding: 0%;
+    margin: 0%;
+    color: white;
+    font-family: 'Iceland', cursive;
+}
+
+#div_dash {
+    background-image: url(../Imgs/leblanc_galante.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+#tela_preta {
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000046;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_boxDash {
+    width: 50vw;
+    height: 60vh;
+    background-color: rgba(0, 0, 0, 0.911);
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: #0cfc78 0px 10px 90px,
+        #f4f4f4 0px -12px 30px,
+        #0cfc78 0px 4px 6px,
+        #f4f4f4 0px 12px 13px,
+        #0cfc78 0px -3px 5px;
+
+}
+
+
+.titulo {
+    font-size: 18mm;
+    color: #ececec;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: #25ff87 1px 1px 10px;
+    margin-bottom: 2vh;
+}
+
+#div_boxDash a {
+    font-size: 14mm;
+    text-align: center;
+    color: #ececec;
+    text-decoration: none;
+    border-radius: 18px;
+    text-shadow: #84ffbb 2px 2px 25px;
+}

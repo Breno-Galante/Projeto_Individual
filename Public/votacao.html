@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_vot.css">
-    <title>Document</title>
+    <title>Votaçâo</title>
 </head>
 
 <body>
@@ -18,32 +18,44 @@
             <div class="area_vot">
 
                 <div class="caixa_vot" id="vot1">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('warriors')" onmouseout="StopSound('warriors')">
+                        <audio id="warriors"
+                            src="Musicas/Y2mate.mx - Warriors _ Season 2020 Cinematic - League of Legends (ft. 2WEI and Edda Hayes) (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
                 <div class="caixa_vot" id="vot2">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('legendsNeveDie')" onmouseout="StopSound('legendsNeveDie')">
+                        <audio id="legendsNeveDie"
+                            src="Musicas/Y2mate.mx - Legends Never Die (ft. Against The Current) _ Worlds 2017 - League of Legends (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
                 <div class="caixa_vot" id="vot3">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('enemy')" onmouseout="StopSound('enemy')">
+                        <audio id="enemy"
+                            src="Musicas/Y2mate.mx - Imagine Dragons & JID - Enemy (from the series Arcane League of Legends) _ Official Music Video (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
                 <div class="caixa_vot" id="vot4">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('more')" onmouseout="StopSound('more')">
+                        <audio id="more"
+                            src="Musicas/Y2mate.mx - K_DA - MORE ft. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine (Official Music Video) (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
                 <div class="caixa_vot" id="vot5">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('rise')" onmouseout="StopSound('rise')">
+                        <audio id="rise"
+                            src="Musicas/Y2mate.mx - RISE (ft. The Glitch Mob, Mako, and The Word Alive) _ Worlds 2018 - League of Legends (128 kbps).mp3"></audio>
                     </div>
                 </div>
-                
+
                 <div class="caixa_vot" id="vot6">
-                    <div class="tela_preta_box">
+                    <div class="tela_preta_box" onmouseover="PlaySound('popStars')" onmouseout="StopSound('popStars')">
+                        <audio id="popStars"
+                            src="Musicas/Y2mate.mx - K_DA - POP_STARS (ft. Madison Beer, (G)I-DLE, Jaira Burns) _ Music Video - League of Legends (128 kbps).mp3"></audio>
                     </div>
                 </div>
 
@@ -53,3 +65,17 @@
 </body>
 
 </html>
+
+<script>
+
+function PlaySound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.play();
+}
+
+function StopSound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.pause();
+    thissound.currentTime = 0;
+}
+</script>
