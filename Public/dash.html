@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Estatisticas</title>
 </head>
 
@@ -13,13 +14,57 @@
     <div id="div_dash">
         <div id="tela_preta">
         <div id="div_boxDash">
-            <div class="titulo">Qual Estatistica você deseja ver?</div>
-            <a class="link_votacao" href="votacao.html">Elos</a>
-            <a class="link_elo" id="elo" href="elo.html">Musicas</a>
-            <a href="" class="login">Rotas</a>
+            <div class="titulo">Estatisticas</div>
+            <div class="box_grafico">
+                <canvas id="myChart1" class="graficos"></canvas>
+                <canvas id="myChart2" class="graficos"></canvas>
+            </div>
+            <div class="box_grafico">
+                <canvas id="myChart3"></canvas>
+        </div>
         </div>
     </div>
     </div>
 </body>
 
 </html>
+
+<script>
+
+var ctx = myChart3.getContext('2d');
+var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Desafiante', 'Grão-Mestre', 'Mestre', 'Diamante', 'Platina', 'Ouro', 'Prata', 'Bronze', 'Ferro'],
+            datasets: [{
+                label: '# of Votes',
+                data: [0.013, 0.030, 0.12, 1.5, 10, 27, 37, 20, 2.1],
+                backgroundColor: [
+                    'rgba(235, 199, 36, 92)',
+                    'rgba(235, 55, 41, 92)',
+                    'rgba(235, 33, 193, 92)',
+                    'rgba(99, 133, 235, 92)',
+                    'rgba(78, 235, 124, 92)',
+                    'rgba(245, 183, 15, 96)',
+                    'rgba(178, 217, 194, 85)',
+                    'rgba(205, 127, 50, 80)',
+                    'rgba(219, 159, 85, 86)'
+
+                ],
+                borderColor: [
+                    'rgba(235, 199, 36, 92)',
+                    'rgba(235, 55, 41, 92)',
+                    'rgba(235, 33, 193, 92)',
+                    'rgba(99, 133, 235, 92)',
+                    'rgba(78, 235, 124, 92)',
+                    'rgba(245, 183, 15, 96)',
+                    'rgba(178, 217, 194, 85)',
+                    'rgba(205, 127, 50, 80)',
+                    'rgba(219, 159, 85, 86)'
+                ],
+                borderWidth: 1
+            }]
+        },
+
+    });
+</script>

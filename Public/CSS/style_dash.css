@@ -24,12 +24,12 @@ body {
 }
 
 #div_boxDash {
-    width: 50vw;
-    height: 60vh;
+    width: 85vw;
+    height: 90vh;
     background-color: rgba(0, 0, 0, 0.911);
     border-radius: 18px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     box-shadow: #0cfc78 0px 10px 90px,
@@ -40,21 +40,24 @@ body {
 
 }
 
-
 .titulo {
     font-size: 18mm;
     color: #ececec;
     text-decoration: none;
     text-align: center;
     text-shadow: #25ff87 1px 1px 10px;
-    margin-bottom: 2vh;
 }
 
-#div_boxDash a {
-    font-size: 14mm;
-    text-align: center;
-    color: #ececec;
-    text-decoration: none;
-    border-radius: 18px;
-    text-shadow: #84ffbb 2px 2px 25px;
+.box_grafico {
+    width: 98%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
 }
+
+#myChart3 {
+    width: 400px;
+    height: 400px;
+}
+
+

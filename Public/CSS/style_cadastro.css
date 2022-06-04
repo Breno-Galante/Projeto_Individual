@@ -97,6 +97,12 @@ body {
     margin-bottom: 6px;
 }
 
+.validacao_erro {
+    text-shadow: #b90202 2px 1px 3px,
+    #fc1f1f 1px 0px 13px;
+    font-size: 5mm;
+}
+
 .field .input_cadastro {
     width: 21vw;
     height: 4.5vh;

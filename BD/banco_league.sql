@@ -17,9 +17,8 @@ rota char (10),
 elo varchar (13),
 divisao char (5),
 senha varchar(30),
-criacao datetime default current_timestamp,
-musica_votada int,
-foreign key (musica_votada) references musicas (id_musica));
+criacao datetime default current_timestamp
+);
 
 create table votos (
 fk_user int primary key,
@@ -38,6 +37,5 @@ Insert into musicas (nome_musica) values
 ('Pop Stars');
 
 select * from usuario;
-
-UPDATE usuario SET elo = '', divisao = '' where id_user = '1';
+select * from votos;
 

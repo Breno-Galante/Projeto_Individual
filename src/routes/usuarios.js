@@ -25,7 +25,7 @@ router.put("/cadastrar_elo", function (req, res) {
     usuarioController.cadastrar_elo(req, res);
 });
 
-router.put("/votoMusica", function (req, res) {
+router.post("/votoMusica", function (req, res) {
     usuarioController.votoMusica(req, res);
 });
 

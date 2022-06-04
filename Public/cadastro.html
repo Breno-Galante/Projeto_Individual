@@ -20,66 +20,66 @@
 
                 <div id="caixa_campos">
 
-                <div class="inputs_separadas">
+                    <div class="inputs_separadas">
 
-                    <div class="field">
-                        <label id="label_nome">Nome</label>
-                        <input id="input_nome" class="input_cadastro" type="text">
-                        <div id="validacao_nome" class="validacao_erro"></div>
+                        <div class="field">
+                            <label id="label_nome">Nome</label>
+                            <input id="input_nome" class="input_cadastro" type="text">
+                            <div id="validacao_nome" class="validacao_erro"></div>
+                        </div>
+
+                        <div class="field">
+                            <label id="label_nome_usuario">Nome de Invocador</label>
+                            <input id="input_nome_invocador" class="input_cadastro" type="text">
+                            <div id="validacao_invocador" class="validacao_erro"></div>
+                        </div>
+
+                        <div class="field">
+                            <label id="label_email">Email</label>
+                            <input id="input_email" class="input_cadastro" type="text">
+                            <div id="validacao_email" class="validacao_erro"></div>
+                        </div>
+
+                        <div class="field">
+                            <label id="label_cep">Cep</label>
+                            <input id="input_cep" onkeyup="cep()" class="input_cadastro" type="text">
+                            <div id="validacao_cep" class="validacao_erro"></div>
+                        </div>
                     </div>
 
-                    <div class="field">
-                        <label id="label_nome_usuario">Nome de Invocador</label>
-                        <input id="input_nome_invocador" class="input_cadastro" type="text">
-                        <div id="validacao_invocador" class="validacao_erro"></div>
-                    </div>
+                    <div class="caixa_inputs">
+                        <div class="field">
+                            <label id="label_estado">Estado</label>
+                            <input id="input_estado" class="input_cadastro" type="text">
+                            <div id="validacao_estado" class="validacao_erro"></div>
+                        </div>
 
-                    <div class="field">
-                        <label id="label_email">Email</label>
-                        <input id="input_email" class="input_cadastro" type="text">
-                        <div id="validacao_email" class="validacao_erro"></div>
-                    </div>
+                        <div class="field">
+                            <label id="label_rota">Selecione sua Rota</label>
+                            <select id="select_rota">
+                                <option value="--"></option>
+                                <option value="top">TOP</option>
+                                <option value="jungle">JUNGLE</option>
+                                <option value="mid">MID</option>
+                                <option value="adc">ADC</option>
+                                <option value="sup">SUP</option>
+                            </select>
+                            <div id="validacao_sp" class="validacao_erro"></div>
+                        </div>
 
-                    <div class="field">
-                        <label id="label_cep">Cep</label>
-                        <input id="input_cep" onkeyup="cep()" class="input_cadastro" type="text">
-                        <div id="validacao_cep" class="validacao_erro"></div>
+                        <div class="field">
+                            <label id="label_senha">Senha</label>
+                            <input id="input_senha" class="input_cadastro" type="password">
+                            <div id="validacao_senha" class="validacao_erro"></div>
+                        </div>
+
+                        <div class="field">
+                            <label id="label_confirmar_senha">Confirmar Senha</label>
+                            <input id="input_confirmar_senha" class="input_cadastro" type="password">
+                            <div id="validacao_confirmar" class="validacao_erro"></div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="caixa_inputs">
-                    <div class="field">
-                        <label id="label_estado">Estado</label>
-                        <input id="input_estado" class="input_cadastro" type="text">
-                        <div id="validacao_estado" class="validacao_erro"></div>
-                    </div>
-
-                    <div class="field">
-                        <label id="label_rota">Selecione sua Rota</label>
-                        <select id="select_rota">
-                            <option value="--"></option>
-                            <option value="top">TOP</option>
-                            <option value="jungle">JUNGLE</option>
-                            <option value="mid">MID</option>
-                            <option value="adc">ADC</option>
-                            <option value="sup">SUP</option>
-                        </select>
-                        <div id="validacao_sp" class="validacao_erro"></div>
-                    </div>
-
-                    <div class="field">
-                        <label id="label_senha">Senha</label>
-                        <input id="input_senha" class="input_cadastro" type="text">
-                        <div id="validacao_senha" class="validacao_erro"></div>
-                    </div>
-
-                    <div class="field">
-                        <label id="label_confirmar_senha">Confirmar Senha</label>
-                        <input id="input_confirmar_senha" class="input_cadastro" type="text">
-                        <div id="validacao_confirmar" class="validacao_erro"></div>
-                    </div>
-                </div>
-            </div>
 
                 <button type="button" id="botao_cadastro" class="botao_entrar" onclick="cadastrar()">Cadastrar</button>
 
@@ -93,7 +93,7 @@
 
 <script>
 
-function cadastrar() {
+    function cadastrar() {
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -105,67 +105,141 @@ function cadastrar() {
         var rotaVar = select_rota.value;
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_confirmar_senha.value;
+        var validacoes = 0
+        var caracteres = senhaVar.indexOf("@")>-1 || 
+                         senhaVar.indexOf(".")>-1 ||
+                         senhaVar.indexOf("#")>-1 ||
+                         senhaVar.indexOf("$")>-1 ||
+                         senhaVar.indexOf("*")>-1 ||
+                         senhaVar.indexOf("&")>-1
 
-        if (nomeVar == "") {
-            validacao_nome.innerHTML = `Por favor insira um nome`
+        if (nomeVar.length < 3) {
+            input_nome.style.outlineColor = 'red';
+            validacao_nome.innerHTML = "Coloque um nome válido";
         }
         else {
-        
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                invocadorServer: invocadorVar,
-                emailServer: emailVar,
-                cepServer: cepVar,
-                estadoServer: estadoVar,
-                rotaServer: rotaVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
+            validacao_nome.innerHTML = ""
+            input_nome.style.outlineColor = '#660030e3'
+            validacoes++
+        }
 
-            console.log("resposta: ", resposta);
+        if (estadoVar.length > 2 || estadoVar < 2) {
+            validacao_estado.innerHTML = "Coloque um estado válido";
+            input_estado.style.outlineColor = 'red';
+        }
+        else {
+            validacao_estado.innerHTML = ""
+            input_estado.style.outlineColor = '#660030e3'
+            validacoes++
+        }
 
-            if (resposta.ok) {
+        if (invocadorVar.length < 3) {
+            validacao_invocador.innerHTML = "Coloque um cep válido";
+            input_nome_invocador.style.outlineColor = 'red';
+        }
+        else {
+            validacao_invocador.innerHTML = ""
+            input_nome_invocador.style.outlineColor = '#660030e3'
+            validacoes++
+        }
 
-                alert("Cadastro realizado com sucesso")
+        if (cepVar.length < 8 || cepVar.length > 9) {
+            validacao_cep.innerHTML = "Coloque um Cep válido";
+            input_cep.style.outlineColor = 'red';
+        }
+        else {
+            validacao_cep.innerHTML = ""
+            input_cep.style.outlineColor = '#660030e3'
+            validacoes++
+        }
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-                
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+        if (emailVar.length < 5 ||
+            emailVar.indexOf("@") == -1) {
+            input_email.style.outlineColor = "red";
+            validacao_email.innerHTML = "Coloque um email válido";
+        } else {
+            validacao_email.innerHTML = ""
+            input_email.style.outlineColor = "#660030e3"
+            validacoes++
+        }
 
-        return false;
+        if (senhaVar.length >= 8 && caracteres) {
+            validacao_senha.innerHTML = ""
+            input_senha.style.outlineColor = "#660030e3"
+            validacoes++
+
+        } else {
+            validacao_senha.style.outlineColor = "red";
+            validacao_senha.innerHTML = "Coloque uma senha válida";
+
+        }
+        if (confirmacaoSenhaVar == senhaVar) {
+            validacao_confirmar.innerHTML = ""
+            input_confirmar_senha.style.outlineColor = "#660030e3"
+            validacoes++
+
+        } else {
+            input_confirmar_senha.style.outlineColor = "red";
+            validacao_confirmar.innerHTML = "Coloque uma senha válida";
+        }
+
+        if (validacoes == 7)  {
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    invocadorServer: invocadorVar,
+                    emailServer: emailVar,
+                    cepServer: cepVar,
+                    estadoServer: estadoVar,
+                    rotaServer: rotaVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                    alert("Cadastro realizado com sucesso")
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
     }
-}
 
-function cep() {
+    function cep() {
 
-fetch(`https://viacep.com.br/ws/${input_cep.value}/json/`, {
-    method: "GET",
-    mode: "cors"
-}).then(function (resposta) {
-    console.log(resposta)
-    resposta.json().then(function(data) {
-        console.log(data)
-        input_estado.value = data.uf;
-    })
+        fetch(`https://viacep.com.br/ws/${input_cep.value}/json/`, {
+            method: "GET",
+            mode: "cors"
+        }).then(function (resposta) {
+            console.log(resposta)
+            resposta.json().then(function (data) {
+                console.log(data)
+                input_estado.value = data.uf;
+            })
 
-}).catch(function (erro) {
-    console.log(erro)
-})
-}
+        }).catch(function (erro) {
+            console.log(erro)
+        })
+    }
 
 </script>

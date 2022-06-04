@@ -47,7 +47,7 @@ function votoMusica(id, nomeInvocador, musica) {
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `UPDATE usuario SET musica_votada = '${musica}' where id_user = '${id}';`;
+    var instrucao = `INSERT INTO votos (fk_user , musica_votada) values ('${id}' , '${musica}');`;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
