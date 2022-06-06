@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_perfil.css">
+    <link rel="shortcut icon" href="Imgs/FavIcon/apple-icon-180x180.png" type="image/x-icon">
     <title>Perfil</title>
 </head>
-<body>
+<body onload="verificarlogin()">
     <div id="div_perfil">
-        <a href="Index.html" id="a_voltar">
+        <a onclick="sair()" href="Index.html" id="a_voltar">
             Sair
         </a>
         <div id="box_opcoes">
@@ -26,3 +27,16 @@
     </div>
 </body>
 </html>
+<script>
+    function sair(){
+    sessionStorage.clear()
+}
+
+ function verificarlogin(){
+    if(sessionStorage.NOME_INVOCADOR ==  null || sessionStorage.ID_USER ==  null){
+
+        alert('Faça um login para continuar')
+        window.location = 'index.html'
+    }
+ } 
+</script>
