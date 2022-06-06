@@ -53,7 +53,7 @@ body {
 
 .div_input {
     width: 90%;
-    height: 40%;
+    height: 60%;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -70,9 +70,9 @@ body {
 }
 
 #input_campeoes {
-    height: 12%;
+    height: 10%;
     width: 18%;
-    border-radius: 12px;
+    border-radius: 16px;
     border: 1px groove #ff6e2a;
 }
 

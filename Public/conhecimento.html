@@ -33,9 +33,25 @@
     var campeões_totais = 159
     function cadastrar() {
 
+        
         var campeao = input_campeoes.value
-        lista_campeoes.push(campeao)
+        var existe = false
+        
         input_campeoes.value = ""
+        
+        for (let c = 0; c < lista_campeoes.length; c++) {
+            if (campeao == lista_campeoes[c]) {
+                existe = true
+            }
+        }
+
+        if (existe == true) {
+            resultado.innerHTML = `Você ja cadastrou esse campeão`
+        }
+        else {
+            lista_campeoes.push(campeao)
+        }
+        
     }
 
     function exibir() {
