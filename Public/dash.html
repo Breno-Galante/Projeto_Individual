@@ -13,17 +13,34 @@
 <body>
     <div id="div_dash">
         <div id="tela_preta">
-        <div id="div_boxDash">
-            <div class="titulo">Estatisticas</div>
-            <div class="box_grafico">
-                <canvas id="myChart1" class="graficos"></canvas>
-                <canvas id="myChart2" class="graficos"></canvas>
+            <div id="div_boxDash">
+                <div id="titulo">Qual Estatistica você deseja ver?</div>
+                <div id="div_elos" class="divs_graficos" onclick="elos()">Elos</div>
+                <div id="div_musicas" class="divs_graficos" onclick="musicas()">Musicas</div>
+                <div id="div_rotas" class="divs_graficos" onclick="rotas()">Rotas</div>
+                <div id="box_grafico_elo">
+                    <div class="divs_graficos">Seu elo é <br><span id="span_elo" class="divs_graficos"></span></div>
+                    <div id="grafico_elo">
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                </div>
+                <div id="box_grafico_musica">
+                    <div class="divs_graficos">Sua musica favorita é <br><span id="span_musica"
+                            class="divs_graficos"></span></div>
+                    <div id="grafico_musica">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+                <div id="box_grafico_rotas">
+                    <div class="divs_graficos">Sua rota é: <br><span id="span_rota"
+                        class="divs_graficos"></span></div>
+                    <div id="grafico_rotas">
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>
+                <div class="divs_graficos" id="retornar" onclick="voltar()">Voltar</div>
             </div>
-            <div class="box_grafico">
-                <canvas id="myChart3"></canvas>
         </div>
-        </div>
-    </div>
     </div>
 </body>
 
@@ -31,40 +48,325 @@
 
 <script>
 
-var ctx = myChart3.getContext('2d');
-var myChart = new Chart(ctx, {
-        type: 'pie',
+    function elos() {
+        div_boxDash.style.width = '85vw'
+        div_boxDash.style.height = '90vh'
+        titulo.innerHTML = 'Gráfico de Elo'
+        box_grafico_elo.style.display = 'flex'
+        retornar.style.display = 'block'
+        div_elos.style.display = 'none'
+        div_musicas.style.display = 'none'
+        div_rotas.style.display = 'none'
+        span_elo.innerHTML = sessionStorage.ELO
+
+    }
+
+    function musicas() {
+        div_boxDash.style.width = '85vw'
+        div_boxDash.style.height = '90vh'
+        titulo.innerHTML = 'Gráfico de Musicas'
+        box_grafico_musica.style.display = 'flex'
+        retornar.style.display = 'block'
+        div_elos.style.display = 'none'
+        div_musicas.style.display = 'none'
+        div_rotas.style.display = 'none'
+        span_musica.innerHTML = sessionStorage.MUSICA
+        puxar_voto_musica()
+
+    }
+
+    function rotas() {
+        div_boxDash.style.width = '85vw'
+        div_boxDash.style.height = '90vh'
+        titulo.innerHTML = 'Gráfico de Rotas'
+        box_grafico_rotas.style.display = 'flex'
+        retornar.style.display = 'block'
+        div_elos.style.display = 'none'
+        div_musicas.style.display = 'none'
+        div_rotas.style.display = 'none'
+        span_rota.innerHTML = sessionStorage.ROTAS
+        puxar_voto_rota()
+
+    }
+
+    function voltar() {
+        div_boxDash.style.width = '50vw'
+        div_boxDash.style.height = '60vh'
+        titulo.innerHTML = 'Qual Estatistica você deseja ver?'
+        box_grafico_elo.style.display = 'none'
+        box_grafico_musica.style.display = 'none'
+        box_grafico_rotas.style.display = 'none'
+        retornar.style.display = 'none'
+        div_elos.style.display = 'block'
+        div_musicas.style.display = 'block'
+        div_rotas.style.display = 'block'
+    }
+
+    var ctx = myChart1.getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
         data: {
-            labels: ['Desafiante', 'Grão-Mestre', 'Mestre', 'Diamante', 'Platina', 'Ouro', 'Prata', 'Bronze', 'Ferro'],
+            labels: ['mestre+', 'Diamante', 'Platina', 'Ouro', 'Prata', 'Bronze', 'Ferro'],
             datasets: [{
                 label: '# of Votes',
-                data: [0.013, 0.030, 0.12, 1.5, 10, 27, 37, 20, 2.1],
+                data: [0.07, 2.29, 9, 29.2, 43.3, 12.6, 3.6],
                 backgroundColor: [
-                    'rgba(235, 199, 36, 92)',
-                    'rgba(235, 55, 41, 92)',
-                    'rgba(235, 33, 193, 92)',
+                    '#800080',
                     'rgba(99, 133, 235, 92)',
                     'rgba(78, 235, 124, 92)',
                     'rgba(245, 183, 15, 96)',
-                    'rgba(178, 217, 194, 85)',
-                    'rgba(205, 127, 50, 80)',
-                    'rgba(219, 159, 85, 86)'
+                    '#dfdfdf',
+                    '#cc7722',
+                    '#6a5acd'
 
                 ],
                 borderColor: [
-                    'rgba(235, 199, 36, 92)',
-                    'rgba(235, 55, 41, 92)',
-                    'rgba(235, 33, 193, 92)',
+                    '#800080',
                     'rgba(99, 133, 235, 92)',
                     'rgba(78, 235, 124, 92)',
                     'rgba(245, 183, 15, 96)',
-                    'rgba(178, 217, 194, 85)',
-                    'rgba(205, 127, 50, 80)',
-                    'rgba(219, 159, 85, 86)'
+                    '#dfdfdf',
+                    '#cc7722',
+                    '#6a5acd'
                 ],
                 borderWidth: 1
             }]
         },
 
     });
+
+    var qtd_votos1 = 0;
+    var qtd_votos2 = 0;
+    var qtd_votos3 = 0;
+    var qtd_votos4 = 0;
+    var qtd_votos5 = 0;
+    var qtd_votos6 = 0;
+
+
+    var nome_musica1 = "";
+    var nome_musica2 = "";
+    var nome_musica3 = "";
+    var nome_musica4 = "";
+    var nome_musica5 = "";
+    var nome_musica6 = "";
+
+    function puxar_voto_musica() {
+
+
+        fetch("/usuarios/puxar_voto_musica").then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    var teste = resposta
+                    qtd_votos1 = resposta[0].musica_votada;
+                    nome_musica1 = resposta[0].nome_musica;
+
+                    if (resposta[1]) {
+                        qtd_votos2 = resposta[1].musica_votada;
+                        nome_musica2 = resposta[1].nome_musica;
+                    }
+                    if (resposta[2]) {
+                        qtd_votos3 = resposta[2].musica_votada;
+                        nome_musica3 = resposta[2].nome_musica;
+                    }
+                    if (resposta[3]) {
+                        qtd_votos4 = resposta[3].musica_votada;
+                        nome_musica4 = resposta[3].nome_musica;
+                    }
+                    if (resposta[4]) {
+                        qtd_votos5 = resposta[4].musica_votada;
+                        nome_musica5 = resposta[4].nome_musica;
+                    }
+                    if (resposta[5]) {
+                        qtd_votos6 = resposta[5].musica_votada;
+                        nome_musica6 = resposta[5].nome_musica;
+                    }
+
+
+
+                    graficoMusica()
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function graficoMusica() {
+
+        const data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    '#fdf857',
+                    '#0ee2e9',
+                    '#01c278',
+                    '#ff52da',
+                    '#ff6e2a',
+                    '#74b4fd'
+                ],
+                borderColor: [
+                    '#fdf857',
+                    '#0ee2e9',
+                    '#01c278',
+                    '#ff52da',
+                    '#ff6e2a',
+                    '#74b4fd'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        data.labels.push(nome_musica1)
+        data.datasets[0].data.push(qtd_votos1)
+
+        if (qtd_votos2 > 0) {
+            data.labels.push(nome_musica2)
+            data.datasets[0].data.push(qtd_votos2)
+        }
+        if (qtd_votos3 > 0) {
+            data.labels.push(nome_musica3)
+            data.datasets[0].data.push(qtd_votos3)
+        }
+        if (qtd_votos4 > 0) {
+            data.labels.push(nome_musica4)
+            data.datasets[0].data.push(qtd_votos4)
+        }
+        if (qtd_votos5 > 0) {
+            data.labels.push(nome_musica5)
+            data.datasets[0].data.push(qtd_votos5)
+        }
+        if (qtd_votos6 > 0) {
+            data.labels.push(nome_musica6)
+            data.datasets[0].data.push(qtd_votos6)
+        }
+
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart2'),
+            config
+        );
+
+    }
+
+    var qtd_votosRotas1 = 0;
+    var qtd_votosRotas2 = 0;
+    var qtd_votosRotas3 = 0;
+    var qtd_votosRotas4 = 0;
+    var qtd_votosRotas5 = 0;
+    var qtd_votosRotas6 = 0;
+
+
+    var rota1 = "";
+    var rota2 = "";
+    var rota3 = "";
+    var rota4 = "";
+    var rota5 = "";
+    var rota6 = "";
+
+    function puxar_voto_rota() {
+
+
+        fetch("/usuarios/puxar_voto_rota").then(function (resposta) {
+            if (resposta.ok) {
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                    var teste = resposta
+                    qtd_votosRotas1 = resposta[0].qtd_rota;
+                    rota1 = resposta[0].rota;
+
+                    if (resposta[1]) {
+                        qtd_votosRotas2 = resposta[1].qtd_rota;
+                        rota2 = resposta[1].rota;
+                    }
+                    if (resposta[2]) {
+                        qtd_votosRotas3 = resposta[2].qtd_rota;
+                        rota3 = resposta[2].rota;
+                    }
+                    if (resposta[3]) {
+                        qtd_votosRotas4 = resposta[3].qtd_rota;
+                        rota4 = resposta[3].rota;
+                    }
+                    if (resposta[4]) {
+                        qtd_votosRotas5 = resposta[4].qtd_rota;
+                        rota5 = resposta[4].rota;
+                    }
+
+
+
+                    graficoRota()
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+
+    function graficoRota() {
+
+        const data = {
+            labels: [],
+            datasets: [{
+                data: [],
+                backgroundColor: [
+                    '#fdf857',
+                    '#0ee2e9',
+                    '#01c278',
+                    '#ff52da',
+                    '#ff6e2a',
+                    '#74b4fd'
+                ],
+                borderColor: [
+                    '#fdf857',
+                    '#0ee2e9',
+                    '#01c278',
+                    '#ff52da',
+                    '#ff6e2a',
+                    '#74b4fd'
+                ],
+                hoverOffset: 4
+            }]
+        };
+
+        data.labels.push(rota1)
+        data.datasets[0].data.push(qtd_votosRotas1)
+
+        if (qtd_votosRotas2 > 0) {
+            data.labels.push(rota2)
+            data.datasets[0].data.push(qtd_votosRotas2)
+        }
+        if (qtd_votosRotas3 > 0) {
+            data.labels.push(rota3)
+            data.datasets[0].data.push(qtd_votosRotas3)
+        }
+        if (qtd_votosRotas4 > 0) {
+            data.labels.push(rota4)
+            data.datasets[0].data.push(qtd_votosRotas4)
+        }
+        if (qtd_votosRotas5 > 0) {
+            data.labels.push(rota5)
+            data.datasets[0].data.push(qtd_votosRotas5)
+        }
+
+        const config = {
+            type: 'pie',
+            data: data,
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart3'),
+            config
+        );
+
+    }
+
 </script>

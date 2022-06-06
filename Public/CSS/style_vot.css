@@ -16,6 +16,18 @@ body {
     margin: 0%;
 }
 
+#a_voltar {
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 0;
+    width: 0%;
+    font-size: 8.5mm;
+    text-shadow: #01c278 2px 2px 3px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
 .tela_preta {
     width: 100%;
     height: 100%;
@@ -94,7 +106,7 @@ body {
 .titulo {
     margin-top: 2%;
     font-size: 20.00mm;
-    text-shadow: #ff52da 3px 4px 9px;
+    text-shadow: #01c278 2px 2px 3px;
 }
 
 

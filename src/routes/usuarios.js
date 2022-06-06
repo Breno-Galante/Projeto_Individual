@@ -29,4 +29,12 @@ router.post("/votoMusica", function (req, res) {
     usuarioController.votoMusica(req, res);
 });
 
+router.get("/puxar_voto_musica", function (req, res) {
+    usuarioController.puxar_voto_musica(req, res);
+});
+
+router.get("/puxar_voto_rota", function (req, res) {
+    usuarioController.puxar_voto_rota(req, res);
+});
+
 module.exports = router;

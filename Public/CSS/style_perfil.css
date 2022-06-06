@@ -18,6 +18,18 @@ body {
     transition: 1s;
 }
 
+#a_voltar {
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 0;
+    width: 0%;
+    font-size: 8.5mm;
+    text-shadow: #0ee2e9 2px 3px 3px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
 #box_opcoes {
     width: 30vw;
     height: 60vh;
@@ -44,5 +56,6 @@ body {
     font-size: 18mm;
     color: white;
     text-decoration: none;
+    text-align: center;
     text-shadow: #0ee2e9 2px 3px 40px;
 }

@@ -12,7 +12,8 @@ function listar() {
 function entrar(nomeInvocador, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", nomeInvocador, senha)
     var instrucao = `
-        SELECT * FROM usuario WHERE nome_invocador = '${nomeInvocador}' AND senha = '${senha}';
+    SELECT U.* , M.nome_musica FROM usuario as U left join votos as V on fk_user = id_user
+    left join musicas as M on musica_votada = id_musica WHERE nome_invocador = '${nomeInvocador}' AND senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -52,10 +53,30 @@ function votoMusica(id, nomeInvocador, musica) {
     return database.executar(instrucao);
 }
 
+function puxar_voto_musica() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function puxar_voto_musica");
+    var instrucao = `
+    select M.nome_musica , count(V.musica_votada) as 'musica_votada' from votos as V join musicas as M on V.musica_votada = M.id_musica group by nome_musica;`
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function puxar_voto_rota() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function puxar_voto_musica");
+    var instrucao = `
+    select count(rota) as qtd_rota , rota from usuario group by rota;`
+    ;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     votoMusica,
     cadastrar,
     cadastrar_elo,
+    puxar_voto_musica,
+    puxar_voto_rota,
     listar,
 };

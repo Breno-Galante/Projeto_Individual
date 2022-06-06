@@ -12,6 +12,9 @@
 
 <body>
     <div id="div_elo">
+        <a href="perfil.html" id="a_voltar">
+            Voltar
+        </a>
         <div class="div_caixa" id="div_box">
 
             <form class="form_elo">
@@ -91,11 +94,13 @@
 
                 if (resposta.ok) {
 
+                    sessionStorage.ELO = eloVar
+
                     alert("Cadastro realizado com sucesso")
 
                     setTimeout(() => {
                         window.location = "perfil.html";
-                    }, "2000")
+                    }, "500")
 
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");

@@ -39,3 +39,29 @@ Insert into musicas (nome_musica) values
 select * from usuario;
 select * from votos;
 
+delete from votos where fk_user = 1;
+
+select count(rota) as qtd_rota , rota from usuario group by rota;
+
+select M.nome_musica , count(V.musica_votada) as 'musica_votada' from votos as V join musicas as M on V.musica_votada = M.id_musica group by nome_musica;
+
+insert into usuario (nome, nome_invocador , rota , elo , senha) values
+('Dias' , 'É o Dias' , 'adc' , 'Prata' , 'Dias@'),
+('Nicolas' , 'É o Nicolas' , 'jungle' , 'Ferro' , 'Nicolas@'),
+('Chinxila' , 'É o Chinxas' , 'sup' , 'bronze' , 'Chinxas@'),
+('Rodrigo' , 'É o Rodrigao' , 'top' , 'prata' , 'Rodrigo@'),
+('Joao Pedro' , 'Jaypy' , 'jungle' , 'platina' , 'Joaopedro@');
+
+
+insert into votos (fk_user , musica_votada) values 
+(1 , 4),
+(2 , 4),
+(3 , 2),
+(4 , 3),
+(5 , 6);
+
+SELECT U.* , M.nome_musica FROM usuario as U left join votos as V on fk_user = id_user
+left join musicas as M on musica_votada = id_musica WHERE nome_invocador = '' AND senha = '';
+
+
+

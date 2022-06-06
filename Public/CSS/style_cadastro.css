@@ -97,6 +97,19 @@ body {
     margin-bottom: 6px;
 }
 
+#a_voltar {
+    position: absolute;
+    color: white;
+    left: 0;
+    top: 0;
+    width: 0%;
+    font-size: 8.5mm;
+    text-shadow: #ff52da 1px 0px 13px,
+    #74b4fd 2px 1px 3px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
 .validacao_erro {
     text-shadow: #b90202 2px 1px 3px,
     #fc1f1f 1px 0px 13px;
