@@ -39,7 +39,7 @@ Insert into musicas (nome_musica) values
 select * from usuario;
 select * from votos;
 
-delete from votos where fk_user = 1;
+-- delete from votos where fk_user = 7;
 
 select count(rota) as qtd_rota , rota from usuario group by rota;
 
@@ -62,6 +62,7 @@ insert into votos (fk_user , musica_votada) values
 
 SELECT U.* , M.nome_musica FROM usuario as U left join votos as V on fk_user = id_user
 left join musicas as M on musica_votada = id_musica WHERE nome_invocador = '' AND senha = '';
+
 
 
 

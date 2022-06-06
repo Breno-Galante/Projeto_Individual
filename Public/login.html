@@ -2,71 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style_login.css">
-    <script src="JS/login.js"></script>
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/style_login.css">
+  <script src="JS/login.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+  <title>Login</title>
 </head>
 
 <body>
-    <div id="div_login">
+  <div id="div_login">
 
-        <a href="Index.html" id="a_voltar">
-            Voltar
-        </a>
+    <a href="Index.html" id="a_voltar">
+      Voltar
+    </a>
 
-        <div class="div_caixa" id="div_box">
+    <div class="div_caixa" id="div_box">
 
-            <form class="form_login">
-                <h1 id="h1_titulo">Iniciar Sessão</h1>
-                <div class="field">
-                    <label id="label_nomeUsuario">Nome de Invocador</label>
-                    <input class="input_login" id="input_nome_invocador" type="text">
-                </div>
-
-                <div class="field">
-                    <label id="label_senha">Senha</label>
-                    <input class="input_login" id="input_senha" type="password">
-                </div>
-
-
-                <button type="button" id="botao_login" class="botao_entrar" onclick="entrar()">Entrar</button>
-
-                <div id="mensagem_erro"></div>
-
-
-                <h3>Você não possui cadastro?<a href="cadastro.html" id="clique_aqui"> Clique Aqui</a></h3>
-            </form>
+      <form class="form_login">
+        <h1 id="h1_titulo">Iniciar Sessão</h1>
+        <div class="field">
+          <label id="label_nomeUsuario">Nome de Invocador</label>
+          <input class="input_login" id="input_nome_invocador" type="text">
         </div>
-        <div id="icone_lol">
-            <img src="Imgs/Icone_lol_semfundo.png">
+
+        <div class="field">
+          <label id="label_senha">Senha</label>
+          <input class="input_login" id="input_senha" type="password">
         </div>
+
+
+        <button type="button" id="botao_login" class="botao_entrar" onclick="entrar()">Entrar</button>
+
+        <div id="mensagem_erro"></div>
+
+
+        <h3>Você não possui cadastro?<a href="cadastro.html" id="clique_aqui"> Clique Aqui</a></h3>
+      </form>
     </div>
+    <div id="icone_lol">
+      <img src="Imgs/Icone_lol_semfundo.png">
+    </div>
+  </div>
 </body>
 
 </html>
 
 <script>
-    function entrar() {
+  function entrar() {
 
-        var nomeInvocadorVar = input_nome_invocador.value;
-        var senhaVar = input_senha.value;
+    var nomeInvocadorVar = input_nome_invocador.value;
+    var senhaVar = input_senha.value;
 
-        /* if (nomeInvocadorVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", nomeInvocadorVar);
-        console.log("FORM SENHA: ", senhaVar); */
-
-        fetch("/usuarios/entrar", {
+    fetch("/usuarios/entrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -98,13 +87,27 @@
             });
           });
 
-        } 
+        }
+
+        else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email e/ou senha inválido',
+          })
+        }
       })
+
       .catch(function (erro) {
         console.log(erro);
       });
 
     return false;
   }
-  
+
 </script>

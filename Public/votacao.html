@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_vot.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
     <title>Votaçâo</title>
 </head>
 
@@ -28,7 +29,7 @@
                             Warriors
                         </div>
                         <audio id="warriors"
-                            src="Musicas/Y2mate.mx - Warriors _ Season 2020 Cinematic - League of Legends (ft. 2WEI and Edda Hayes) (128 kbps).mp3"></audio>
+                            src="Musicas/Warrior_musica.mp3"></audio>
 
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                             Legends Never Die
                         </div>
                         <audio id="legendsNeveDie"
-                            src="Musicas/Y2mate.mx - Legends Never Die (ft. Against The Current) _ Worlds 2017 - League of Legends (128 kbps).mp3"></audio>
+                            src="Musicas/LegendsNeverDie_musica.mp3"></audio>
                     </div>
                 </div>
 
@@ -53,7 +54,7 @@
                             Enemy
                         </div>
                         <audio id="enemy"
-                            src="Musicas/Y2mate.mx - Imagine Dragons & JID - Enemy (from the series Arcane League of Legends) _ Official Music Video (128 kbps).mp3"></audio>
+                            src="Musicas/Enemy-musica.mp3"></audio>
                     </div>
                 </div>
 
@@ -65,7 +66,7 @@
                             More
                         </div>
                         <audio id="more"
-                            src="Musicas/Y2mate.mx - K_DA - MORE ft. Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine (Official Music Video) (128 kbps).mp3"></audio>
+                            src="Musicas/More_musica.mp3"></audio>
                     </div>
                 </div>
 
@@ -77,7 +78,7 @@
                             Rise
                         </div>
                         <audio id="rise"
-                            src="Musicas/Y2mate.mx - RISE (ft. The Glitch Mob, Mako, and The Word Alive) _ Worlds 2018 - League of Legends (128 kbps).mp3"></audio>
+                            src="Musicas/Rise_musica.mp3"></audio>
                     </div>
                 </div>
 
@@ -89,7 +90,7 @@
                             Pop Stars
                         </div>
                         <audio id="popStars"
-                            src="Musicas/Y2mate.mx - K_DA - POP_STARS (ft. Madison Beer, (G)I-DLE, Jaira Burns) _ Music Video - League of Legends (128 kbps).mp3"></audio>
+                            src="Musicas/PopStars_musica.mp3"></audio>
                     </div>
                 </div>
 
@@ -155,9 +156,16 @@
 
                     sessionStorage.MUSICA = nome_musica
 
-                    alert("Cadastro realizado com sucesso")
+                    Swal.fire(
+                        'Bom Trabalho',
+                        'Sua musica foi cadastrada com sucesso',
+                        'success'
+                    )
 
+
+                    setTimeout(() => {
                         window.location = "perfil.html";
+                    }, "2500")
 
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");

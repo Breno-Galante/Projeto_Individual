@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style_elo.css">
     <script src="JS/cadastro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
     <title>Cadastro</title>
 </head>
 
@@ -96,11 +97,16 @@
 
                     sessionStorage.ELO = eloVar
 
-                    alert("Cadastro realizado com sucesso")
+                    Swal.fire(
+                        'Bom Trabalho',
+                        'Seu elo foi cadastrado com sucesso',
+                        'success'
+                    )
+
 
                     setTimeout(() => {
                         window.location = "perfil.html";
-                    }, "500")
+                    }, "2500")
 
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
